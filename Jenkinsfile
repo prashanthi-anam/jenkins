@@ -1,5 +1,5 @@
 node  {    
-     stage('git clone') { 
+    stage('git clone') { 
       git credentialsId: 'github', url: 'https://github.com/kartikeyapro/app.git'
      }
     stage('maven clean') {
@@ -17,5 +17,7 @@ node  {
     stage('maven package') { 
      sh '''mvn package'''
     }
+	stage('maven deployment') { 
+     sh '''mvn deploy'''
+    }
 }
-
